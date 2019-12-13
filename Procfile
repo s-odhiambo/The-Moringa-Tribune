@@ -1,1 +1,1 @@
-web: gunicorn The-Moringa-Tribune.wsgi --log-file -
+web: gunicorn tribune.wsgi --log-file -
