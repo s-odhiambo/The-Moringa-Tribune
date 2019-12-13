@@ -35,14 +35,14 @@ if config('MODE')=="dev":
    
    # production
 else:
-   DATABASES = {
+    DATABASES = {
        'default': dj_database_url.config(
            default=config('DATABASE_URL')
        )
-   }
+    }
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
@@ -56,12 +56,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c8yu3#e_&e7bb$%!18ww&6fc68*$i67m#v+6@n3g_k9n18)-f('
+# SECRET_KEY = 'c8yu3#e_&e7bb$%!18ww&6fc68*$i67m#v+6@n3g_k9n18)-f('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 
 # Application definition
