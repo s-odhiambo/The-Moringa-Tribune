@@ -9,14 +9,13 @@ class EditorTestClass(TestCase):
 
     # Set up method
     def setUp(self):
-        self.samuel= Editor(first_name = 'Samuel', last_name ='Odhiambo', email ='odhiambosamuel@gmail.com')
+        self.samuel= Editor(first_name = 'Samuel', last_name ='Odhiambo', email ='odhiamboangienda25@gmail.com')
 
 
 
 # Testing  instance
     def test_instance(self):
-        self.assertTrue(isinstance(self.samuel,Editor))
-        
+        self.assertTrue(isinstance(self.samuel,Editor))  
         
         
     # Testing Save Method
@@ -44,7 +43,7 @@ class ArticleTestClass(TestCase):
     
     def setup(self):
         #Creating a new editor and saving it
-        self.samuel= Editor(first_name = 'samuel', last_name = 'Odhiambo', email = 'odhiambosamuel@gmail.com')
+        self.samuel= Editor(first_name = 'samuel', last_name = 'Odhiambo', email = 'odhiamboangienda25@gmail.com')
         self.samuel.save_editor()
         
         #Creating a new tag and saving it
