@@ -37,7 +37,9 @@
           </form>
 
           {% if user.is_authenticated %}
+          <span class="caret"></span>
               <a class="btn btn-outline-info" href="{%url 'newsToday'%}">Home</a>
+              <a class="btn btn-outline-danger" href="{%url 'new-article'%}">Create Article</a>
               <a class="btn btn-outline-success" href="/accounts/password/change">Change Password</a>
               <a class="btn btn-outline-warning" href="/logout">Logout</a>
               
