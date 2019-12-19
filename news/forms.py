@@ -1,6 +1,6 @@
 from django import forms
 from .models import Article
-from .forms import NewArticleForm, NewsLetterForm
+# from .forms import NewArticleForm, NewsLetterForm
 
 
 class NewsLetterForm(forms.Form):
@@ -10,13 +10,13 @@ class NewsLetterForm(forms.Form):
   
 class NewArticleForm(forms.ModelForm):
     class Meta:
-  model = Article
-  exclude = ['editor', 'pub_date']
-  widgets = {
-      'tags': forms.CheckboxSelectMultiple(),
-  }
+        model = Article
+        exclude = ['editor', 'pub_date']
+        widgets = {
+              'tags': forms.CheckboxSelectMultiple(),
+        }
   
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def new_article(request):
   current_user = request.user
   if request.method == 'POST':

@@ -1,7 +1,7 @@
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from django.shortcuts import render, redirect
 import datetime as dt
-from .models import Article,NewsLetterRecipients
+from .models import Article, NewsLetterRecipients
 from .forms import NewsLetterForm
 from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
@@ -17,7 +17,8 @@ from django.contrib.auth.decorators import login_required
 
 def news_today(request):
   date = dt.date.today()
-  news=Article.todays_news()
+  news = Article.todays_news()
+  
   if request.method == 'POST':
     form = NewsLetterForm(request.POST)
     if form.is_valid():

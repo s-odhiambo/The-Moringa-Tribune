@@ -20,8 +20,8 @@ from django.contrib.auth import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'',include('news.urls')),
-    url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^accounts/', include('django_registration.backends.activation.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^logout/$', views.logout, {"next_page": '/'}),
-    url(r'^tinymce/', include('tinymce.urls')),
-
+    url(r'^tinymce/', include('tinymce.urls'))
 ]

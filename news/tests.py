@@ -1,4 +1,5 @@
 from django.test import TestCase
+import datetime as dt
 
 # Create your tests here.
 
@@ -25,20 +26,6 @@ class EditorTestClass(TestCase):
         self.assertTrue(len(editors) > 0)
             
 
-class Editor(models.Model):
-    first_name = models.CharField(max_length = 30)
-    last_name = models.CharField(max_length = 30)
-    email = models.EmailField()
-    
-    def __str__(self):
-        return self.first_name
-    
-    
-    def save_editor(self):
-        self.save()
-        
-        
-        
 class ArticleTestClass(TestCase):
     
     def setup(self):
@@ -65,14 +52,14 @@ class ArticleTestClass(TestCase):
         
     
     def test_get_news_today(self):
-        today_news = Article.today_news()
-        self,assertTrue(len(today_news)>0)
+        today_news = Article.todays_news()
+        self.assertTrue(len(today_news) > 0)
         
         
     def test_get_news_by_date(self):
-        tes_date = '2017-03-17'
+        test_date = '2017-03-17'
         date = dt.datetime.strptime(test_date, '%Y-%m-%d').date()
         news_by_date = Article.days_news(date)
-        self.assertTrue(len(news_by_date) ==0)        
+        self.assertTrue(len(news_by_date) == 0)        
             
             
