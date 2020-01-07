@@ -111,7 +111,23 @@ def article(request,article_id):
 
 def profile(request):
   title = 'profile'
-  return render(request,"profile.html",{"title":title})    
+  return render(request,"profile.html",{"title":title})
+
+
+@login_required(login_url='/accounts/login/')
+def new_article(request):
+    current_user = request.user 
+    if request.method == 'POST':
+        form = NewArticleForm(request.POST, request.FILES)
+        if form.is_valid():
+            article = form.save(commit = False)
+            article.editor = current_user
+            article.pub_date = dt.datetime.now()
+            article.save()
+        return redirect('newsToday')
+    else:
+        form = NewArticleForm()
+    return render(request, 'new_article.html', {"form":form})    
 
   #   day = convert_dates(date)
   #   html = f'''
